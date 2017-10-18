@@ -1,12 +1,17 @@
 import os
-
 from NLPtools import NLPtools
+
+all = "english.all.3class.distsim.crf.ser.gz"
+conll = "english.conll.4class.distsim.crf.ser.gz"
+muc = "english.muc.7class.distsim.crf.ser.gz"
 
 nlp = NLPtools("/home/vlad/Documents/CoreNLP/", "/home/vlad/Documents/stanford-ner-2017-06-09/")
 
-#nlp.alterto_crf_textfile("\n\n","\n","DATA/","mata.txt","matatest.txt")
-#nlp.usemodel("mata.txt","english.all.3class.distsim.crf.ser.gz","mata_entities.txt")
-#nlp.nerouttocolumns("mata_entities.txt","mata_formated.txt")
+# collect all sentences to one file and
+# separate sentences from different documents by '\n*' because '…' sign  cause problems
+print( nlp.alterto_crf_textfile("\n\n","\n","MATA/","MA/mata.txt"))
 
-with open("/home/vlad/Documents/CoreNLP/mata_entities.txt") as ff:
-    print(    ff.read().split("\n").__len__())
+nlp.usemodel("MA/mata.txt",all,"MA/mata_entities.txt")
+
+# entity/TYPE[ ]... -> entity[TAB]TYPE[\n]
+nlp.nerouttocolumns("MA/mata_entities.txt","MA/mata_formated.txt")
