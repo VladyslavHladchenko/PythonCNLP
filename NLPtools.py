@@ -44,8 +44,8 @@ class NLPtools:
         f = open(self.files + script_out, "w")
         subprocess.call([self.nlpdir + script, model, self.files + test], stdout=f)
 
-    def trainmodel(self):
-        subprocess.call([self.nlpdir + "nertrain.sh"])
+    def trainmodel(self,propfile):
+        subprocess.call([self.nlpdir + "nertrain.sh",propfile])
 
     def conlltocolumns(self,inname,outname):
         with open(self.files + inname, 'r') as in_file, open(self.files + outname, 'w') as out_file:
