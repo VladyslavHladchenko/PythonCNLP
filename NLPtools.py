@@ -21,13 +21,15 @@ class NLPtools:
                     if name.endswith(".txt"):
                         file_path = os.path.join(root, name)
                         with open(file_path, 'r') as text_file, open(file_path[:-3] + "an") as ann:
-
+                            # write_file.write("\n-DOCSTART- O\n")
                             content = text_file.read().split(envi)[1]
 
                             if count:
                                 write_file.write(sep)
                             count += 1
+                            testfile.write("\n-DOCSTART-\tO\n\n")
                             testfile.write(ann.read())
+
                             write_file.write(content)
 
         return count
