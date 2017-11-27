@@ -12,7 +12,7 @@ class NLPtools:
     # return number of processed files
     # makes testfile too
     def alterto_crf_textfile(self, envi, sep, fpath, out_name, test_name):
-        # think about variants
+        #
         count = 0
         with open(self.files + out_name, 'w') as write_file,  open(self.files + test_name,"w") as testfile:
 
