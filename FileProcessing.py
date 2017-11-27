@@ -10,7 +10,7 @@ muc_7class = "english.muc.7class.distsim.crf.ser.gz"
 nlp = NLPtools(files, "/home/vlad/Documents/stanford-ner-2017-06-09/")
 
 # collect all sentences to one file and
-# separate sentences from different documents by '\n*' because '…' sign  cause problems
+# separate sentences from different documents by '\n'
 nlp.alterto_crf_textfile("\n\n","\n","DATA/","data.txt","datatest.txt")
 
 
